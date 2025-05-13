@@ -56,7 +56,7 @@ ggplot() +
 
 ## Linear Plot Total Return Received by Month
 
-Note that the behavior shows years from 2015 to 2025
+Note that the behavior is showed over the same timeline period simulstaneously years from 2015 to 2025
 ```{r}
 library(tidyverse)
 library(skimr)
