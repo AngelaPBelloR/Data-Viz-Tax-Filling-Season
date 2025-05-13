@@ -1,0 +1,80 @@
+---
+title: "Tax Return Filled Season"
+author: "AB"
+date: "2025-05-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+install.packages("weatherData",repos = "http://cran.us.r-project.org")
+```
+
+## Taxes: Filling Season 2015 - 2025
+
+```{r tax fill}
+
+library(tidyverse)
+
+library(skimr)
+
+library(janitor)
+
+library(readr)
+
+library(dplyr)
+
+library(ggplot2)
+
+tax_fill <- read_csv("/Users/angelabello/Documents/UniversityofChicago/DataStorytelling/DataAnalysis/R/Project_TaxFill/filing-season-statistics-2015-to-2025.csv")
+glimpse(tax_fill)
+```
+
+## Scatter Plot Total Return Received by Year
+
+Note that make data time converts the columns year, months, and day in variable x = datetime
+
+
+```{r scatter plot}
+tax_fill <- read_csv("/Users/angelabello/Documents/UniversityofChicago/DataStorytelling/DataAnalysis/R/Project_TaxFill/filing-season-statistics-2015-to-2025.csv")
+glimpse(tax_fill)
+
+library(tidyverse)
+library(skimr)
+library(janitor)
+library(readr)
+library(dplyr)
+library(ggplot2)
+tax_fill%>%
+  # make datetime
+  mutate(datetime = make_datetime(year, month, day))%>%
+ggplot() + 
+  geom_point(mapping = aes(x=datetime, y=total_returns_received, colour = year, size=total_returns_received)) + 
+  labs(title="Filling Season Tax: Filled Date vs. Total Returns Received ", subtitle="Years 2015-2025", caption="The statistics compare totals as of first Friday of the year compared with the corresponding Friday in the prior year.") 
+
+```
+
+## Linear Plot Total Return Received by Month
+
+Note that the behavior shows years from 2015 to 2025
+```{r}
+library(tidyverse)
+library(skimr)
+library(janitor)
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+tax_fill <- read_csv("/Users/angelabello/Documents/UniversityofChicago/DataStorytelling/DataAnalysis/R/Project_TaxFill/filing-season-statistics-2015-to-2025.csv")
+glimpse(tax_fill)
+
+tax_fill%>%
+# make datetime: force unique year
+  mutate(datetime = make_datetime(2015, month, day))%>%
+  ggplot() + 
+  geom_line(aes(x = datetime, y = total_returns_received, colour = factor(year))) + 
+  labs(title = "Total Returns Received", colour = "Year")
+
+
+
+```
