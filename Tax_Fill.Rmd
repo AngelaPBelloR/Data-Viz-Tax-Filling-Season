@@ -15,15 +15,10 @@ install.packages("weatherData",repos = "http://cran.us.r-project.org")
 ```{r tax fill}
 
 library(tidyverse)
-
 library(skimr)
-
 library(janitor)
-
 library(readr)
-
 library(dplyr)
-
 library(ggplot2)
 
 tax_fill <- read_csv("/Users/angelabello/Documents/UniversityofChicago/DataStorytelling/DataAnalysis/R/Project_TaxFill/filing-season-statistics-2015-to-2025.csv")
@@ -58,6 +53,7 @@ ggplot() +
 
 Note that the behavior is showed over the same timeline period simulstaneously years from 2015 to 2025
 ```{r}
+
 library(tidyverse)
 library(skimr)
 library(janitor)
@@ -74,7 +70,6 @@ tax_fill%>%
   ggplot() + 
   geom_line(aes(x = datetime, y = total_returns_received, colour = factor(year))) + 
   labs(title = "Total Returns Received", colour = "Year")
-
 
 
 ```
