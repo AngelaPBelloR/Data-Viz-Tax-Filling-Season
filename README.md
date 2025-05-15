@@ -17,6 +17,8 @@ ggplot() +
   labs(title="Filling Season Tax: Filled Date vs. Total Returns Received ", subtitle="Years 2015-2025", caption="The statistics compare totals as of the first Friday of the year compared with the corresponding Friday in the prior year.") 
 
 ```
+![image](Rplot_Return_Tax.jpeg)
+
 Note that utilizing a single timeline year, here simultaneously shows years from 2015 to 2025
 ```{r tax fill}
 tax_fill%>%
@@ -26,3 +28,4 @@ tax_fill%>%
   geom_line(aes(x = datetime, y = total_returns_received, colour = factor(year))) + 
   labs(title = "Total Returns Received", colour = "Year")
 ```
+![image](Rplot_line by year.jpeg)
