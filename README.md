@@ -28,4 +28,4 @@ tax_fill%>%
   geom_line(aes(x = datetime, y = total_returns_received, colour = factor(year))) + 
   labs(title = "Total Returns Received", colour = "Year")
 ```
-![image](Rplot_line by year.jpeg)
+![image](Rplot_line_by_year.jpeg)
