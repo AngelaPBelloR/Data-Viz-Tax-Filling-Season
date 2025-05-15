@@ -1,3 +1,6 @@
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+install.packages("languageserver")
+install.packages("httpgd")
 install.packages("tidyverse")
 install.packages("skimr")
 install.packages("janitor")
